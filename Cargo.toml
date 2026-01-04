@@ -30,7 +30,7 @@ serde_json = "1.0"
 toml = "0.8"
 
 # 配置管理
-config = "0.14"
+config = "0.15"
 
 # 日志和追踪
 tracing = "0.1"
