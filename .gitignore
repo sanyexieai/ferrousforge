@@ -1,0 +1,59 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# 日志
+*.log
+
+# 配置文件（包含敏感信息）
+config.toml
+config.local.toml
+.env
+.env.local
+
+# 模型文件（通常很大）
+resources/models/
+*.gguf
+*.safetensors
+*.onnx
+*.pt
+*.pth
+*.bin
+
+# 测试数据
+tests/fixtures/models/*.gguf
+tests/fixtures/models/*.safetensors
+
+# 临时文件
+*.tmp
+*.temp
+tmp/
+temp/
+
+# 构建产物
+dist/
+build/
+
+# 文档构建
+docs/_build/
+
+# 覆盖率报告
+coverage/
+*.gcov
+*.gcda
+*.gcno
+
+# 性能分析
+perf.data*
+*.prof
+

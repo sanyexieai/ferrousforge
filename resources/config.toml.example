@@ -1,0 +1,56 @@
+# FerrousForge 配置文件示例
+# 复制此文件为 config.toml 并根据需要修改
+
+[server]
+host = "127.0.0.1"
+port = 11434
+# workers = 4  # 可选：工作线程数
+max_connections = 100
+timeout = 300  # 秒
+
+# CORS 配置（可选）
+# [server.cors]
+# allowed_origins = ["http://localhost:3000", "https://example.com"]
+# allowed_methods = ["GET", "POST", "DELETE"]
+# allowed_headers = ["Content-Type", "Authorization"]
+
+[storage]
+base_path = "./models"
+cache_size = 10737418240  # 10GB (字节)
+auto_download = false
+download_timeout = 3600  # 秒
+
+[inference]
+default_backend = "candle"
+max_concurrent_requests = 10
+# max_memory_per_model = 2147483648  # 2GB (可选)
+auto_unload_timeout = 300  # 秒
+
+# 后端配置
+[inference.backends.candle]
+enabled = true
+# device = "cpu"  # cpu, cuda, metal
+# threads = 4
+
+[inference.backends.llama_cpp]
+enabled = false
+# device = "cpu"
+# threads = 4
+# gpu_layers = 0
+
+[inference.backends.onnx]
+enabled = false
+# device = "cpu"
+# execution_provider = "cpu"  # cpu, cuda, tensorrt
+
+[logging]
+level = "info"  # trace, debug, info, warn, error
+format = "json"  # json, pretty
+output = ["stdout"]  # stdout, stderr, 或文件路径
+
+# 指标配置（可选）
+# [metrics]
+# enabled = true
+# port = 9090
+# path = "/metrics"
+
