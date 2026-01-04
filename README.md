@@ -2,11 +2,15 @@
 
 一个参考 Ollama 架构的 Rust 实现，支持多种模型类型（文本、图像、音频、视频等）的统一推理服务。
 
+[![CI](https://github.com/your-org/ferrousforge/workflows/CI/badge.svg)](https://github.com/your-org/ferrousforge/actions)
+[![License](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](LICENSE)
+[![Rust](https://img.shields.io/badge/rust-1.75+-orange.svg)](https://www.rust-lang.org/)
+
 ## 📋 项目状态
 
-**当前阶段**: 设计阶段 🎨
+**当前阶段**: 开发阶段 🚀
 
-本项目目前处于架构设计阶段，尚未开始代码实现。我们正在讨论和确定技术方案。
+项目已初始化，基础架构和 CI/CD 已配置完成。
 
 ## 🎯 项目目标
 
@@ -112,6 +116,7 @@ ferrousforge/
 - [架构设计文档](./docs/ARCHITECTURE.md) - 核心架构和设计决策
 - [Mold 设计文档](./docs/MOLD_DESIGN.md) - 统一模型接口设计
 - [实现路线图](./docs/IMPLEMENTATION_ROADMAP.md) - 开发阶段和优先级
+- [CI/CD 配置](./docs/CI_CD.md) - 持续集成和部署说明
 
 ## 🚀 计划中的功能
 
@@ -159,7 +164,22 @@ ferrousforge/
 
 ## 🤝 贡献
 
-项目目前处于设计阶段，欢迎讨论和反馈！
+欢迎贡献！请查看 [贡献指南](.github/CONTRIBUTING.md) 了解详细信息。
+
+### 开发流程
+
+1. Fork 项目
+2. 创建功能分支 (`git checkout -b feature/amazing-feature`)
+3. 提交更改 (`git commit -m 'feat: add amazing feature'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 创建 Pull Request
+
+### 代码规范
+
+- 使用 `cargo fmt` 格式化代码
+- 使用 `cargo clippy` 检查代码质量
+- 确保所有测试通过
+- 遵循 [Conventional Commits](https://www.conventionalcommits.org/) 规范
 
 ## 📝 许可证
 
