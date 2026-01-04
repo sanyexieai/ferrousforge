@@ -15,4 +15,5 @@ pub use types::*;
 pub use metadata::{ModelMetadata, ModelRequirements, MemoryUsage};
 pub use traits::{Model, Inferable, Streamable, Trainable};
 pub use mold::{Mold, MoldType, CandleMold, LlamaCppMold, ExternalMold};
+pub use base::{BaseModel, BaseModelConfig, ModelState, ModelLifecycleManager};
 
