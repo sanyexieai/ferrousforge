@@ -58,6 +58,7 @@ futures-util = "0.3"
 
 # 并发
 parking_lot = "0.12"
+num_cpus = "1.16"
 
 # 指标和监控（可选，未来使用）
 # prometheus = "0.13"
@@ -68,6 +69,29 @@ parking_lot = "0.12"
 # candle-core = "0.3"
 # candle-nn = "0.3"
 # candle-transformers = "0.3"
+
+# llama.cpp 绑定
+# 选项1: 使用现有的 Rust 绑定库（推荐）
+# 注意：如果该库不可用，可以使用动态加载方式
+# llama_cpp_rs = { version = "0.1", optional = true }
+# 选项2: 使用 libloading 来动态加载 llama.cpp 库（备选）
+libloading = { version = "0.8", optional = true }
+# 选项3: 使用 bindgen 生成绑定（需要 build.rs）
+# bindgen = { version = "0.69", optional = true }
+
+[build-dependencies]
+# 用于生成 FFI 绑定（如果使用 bindgen）
+# bindgen = { version = "0.69", optional = true }
+
+[features]
+default = []
+# 启用 llama.cpp 支持（静态链接，需要系统安装 llama.cpp 库）
+# 使用 build.rs 配置链接
+llama-cpp = []
+# 启用 llama.cpp 支持（动态加载，需要系统安装 llama.cpp）
+llama-cpp-dynamic = ["libloading"]
+# 启用 llama.cpp 支持（使用 bindgen 生成绑定）
+# llama-cpp-bindgen = ["bindgen"]
 
 [dev-dependencies]
 # 测试
@@ -94,4 +118,9 @@ path = "src/lib.rs"
 [[bin]]
 name = "ferrousforge"
 path = "src/main.rs"
+
+# 集成测试
+[[test]]
+name = "integration_llama_cpp"
+path = "tests/integration_llama_cpp.rs"
 
