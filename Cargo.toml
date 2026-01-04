@@ -41,7 +41,7 @@ thiserror = "1.0"
 anyhow = "1.0"
 
 # HTTP 客户端（用于模型下载）
-reqwest = { version = "0.11", features = ["json", "stream"] }
+reqwest = { version = "0.13", features = ["json", "stream"] }
 
 # 时间处理
 chrono = { version = "0.4", features = ["serde"] }
@@ -85,7 +85,7 @@ libloading = { version = "0.8", optional = true }
 # 用于编译 C/C++ 代码
 cc = { version = "1.0", optional = true }
 # 用于下载文件
-reqwest = { version = "0.11", optional = true, default-features = false, features = ["blocking"] }
+reqwest = { version = "0.13", optional = true, default-features = false, features = ["blocking"] }
 # 用于解压文件
 flate2 = { version = "1.0", optional = true }
 tar = { version = "0.4", optional = true }
