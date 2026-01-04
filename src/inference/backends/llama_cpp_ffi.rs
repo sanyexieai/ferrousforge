@@ -233,7 +233,7 @@ impl LlamaCppFFI {
     pub fn load_model(
         &self,
         model_path: &Path,
-        n_ctx: u32,
+        _n_ctx: u32,
         n_gpu_layers: i32,
     ) -> Result<LlamaModelPtr, String> {
         let path_str = model_path.to_str()

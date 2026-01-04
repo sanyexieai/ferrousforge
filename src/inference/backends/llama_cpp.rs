@@ -111,6 +111,14 @@ impl Clone for LlamaCppModelHandle {
     }
 }
 
+// 安全说明：虽然包含原始指针（*mut c_void），但 llama.cpp 的模型和上下文指针
+// 在单线程使用是安全的。在实际使用中，我们通过 Arc<RwLock<>> 包装来确保线程安全。
+// 这里标记为 Send/Sync 是为了满足 async trait 的要求，实际使用时需要适当的同步。
+#[cfg(feature = "llama-cpp")]
+unsafe impl Send for LlamaCppModelHandle {}
+#[cfg(feature = "llama-cpp")]
+unsafe impl Sync for LlamaCppModelHandle {}
+
 /// llama.cpp 上下文参数
 #[derive(Debug, Clone)]
 pub struct LlamaCppContextParams {
@@ -509,13 +517,19 @@ impl InferenceBackend for LlamaCppBackend {
                 n_ctx: context_params.n_ctx as u32,
                 n_batch: context_params.n_batch as u32,
                 n_threads: context_params.n_threads as u32,
+                n_threads_batch: context_params.n_threads as u32,
                 n_gpu_layers: context_params.n_gpu_layers,
-                seed: 0xFFFFFFFF,
+                main_gpu: 0,
+                tensor_split: std::ptr::null(),
+                rope_freq_base: 10000.0,
+                rope_freq_scale: 1.0,
+                mul_mat_q: true,
                 f16_kv: true,
                 logits_all: false,
                 embedding: false,
                 use_mmap: context_params.use_mmap,
                 use_mlock: context_params.use_mlock,
+                seed: 0xFFFFFFFF,
             };
             
             // 步骤 3: 创建上下文
