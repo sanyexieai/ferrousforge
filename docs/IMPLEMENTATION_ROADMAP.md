@@ -89,10 +89,10 @@
    - 适合：生产环境，复杂模型
 
 **任务**：
-- [ ] 实现推理后端抽象（inference/backend.rs）
-  - [ ] `InferenceBackend` trait
-  - [ ] 后端配置
-  - [ ] 后端注册
+- [x] 实现推理后端抽象（inference/backend.rs）
+  - [x] `InferenceBackend` trait
+  - [x] 后端配置
+  - [x] 后端注册
 
 - [ ] 实现第一个后端（推荐 Candle）
   - [ ] Candle 后端实现（inference/backends/candle.rs）
