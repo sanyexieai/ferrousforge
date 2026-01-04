@@ -53,11 +53,11 @@
 **目标**：定义和实现模型抽象接口
 
 **任务**：
-- [ ] 实现模型 trait（models/traits.rs）
-  - [ ] `Model` trait
-  - [ ] `Inferable` trait
-  - [ ] `Streamable` trait
-  - [ ] 模型类型枚举
+- [x] 实现模型 trait（models/traits.rs）
+  - [x] `Model` trait
+  - [x] `Inferable` trait
+  - [x] `Streamable` trait
+  - [x] 模型类型枚举
 
 - [ ] 实现基础模型（models/base.rs）
   - [ ] 通用模型元数据
