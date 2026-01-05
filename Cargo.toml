@@ -75,7 +75,7 @@ num_cpus = "1.16"
 # 注意：如果该库不可用，可以使用动态加载方式
 # llama_cpp_rs = { version = "0.1", optional = true }
 # 选项2: 使用 libloading 来动态加载 llama.cpp 库（备选）
-libloading = { version = "0.8", optional = true }
+libloading = { version = "0.9", optional = true }
 # 选项3: 使用 bindgen 生成绑定（需要 build.rs）
 # bindgen = { version = "0.69", optional = true }
 
